@@ -1,7 +1,6 @@
 <?php
-
 namespace App\Models;
-
+use App\Enums\Gender;
 use Illuminate\Database\Eloquent\Model;
 
 class Members extends Model
@@ -11,7 +10,9 @@ class Members extends Model
         'join_date', 'name', 'email', 'phone', 'date_of_birth',
         'gender', 'building_number', 'city', 'street'
     ];
-
+        protected $casts = [
+        'gender' => Gender::class,
+    ];
     public function memberships()
     {
         return $this->hasMany(Memberships::class);

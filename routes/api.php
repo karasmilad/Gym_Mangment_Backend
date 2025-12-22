@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MembersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/test', function () {
@@ -7,4 +8,5 @@ Route::get('/test', function () {
         'message' => 'API is working'
     ]);
 });
-?> 
+Route::apiResource('member', MembersController::class);
+?>
