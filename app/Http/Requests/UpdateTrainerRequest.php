@@ -6,7 +6,7 @@ use App\Enums\Gender;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
-class UpdateMemberRequest extends FormRequest
+class UpdateTrainerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,8 @@ class UpdateMemberRequest extends FormRequest
     {
         return [
             'name'   => 'sometimes|string|max:255',
-            'email'  => 'sometimes|email|unique:members,email,'. $this->route('members'),
+            'email'  => 'sometimes|email|unique:trainers,email,'. $this->route('trainers'),
             'gender' => ['sometimes', new Enum(Gender::class)],
-            'photo'  => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048'
         ];
     }
 }
