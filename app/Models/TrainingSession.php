@@ -22,6 +22,6 @@ class TrainingSession  extends Model
 
     public function bookings()
     {
-        return $this->hasMany(Bookings::class);
+        return $this->hasMany(Bookings::class , 'session_id');
     }
 }
